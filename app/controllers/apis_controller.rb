@@ -38,8 +38,8 @@ class ApisController < ApplicationController
   def destroy
     @api.destroy
     respond_to do |format|
-      format.html { redirect_to apis_url, notice: "Api was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to root_path, notice: "Api was successfully destroyed." }
+      #format.json { head :no_content }
     end
   end
 

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get "/apis", to: 'apis#new'
   post "/apis", to: 'apis#create'
+  delete "/apis/del/:id", to: 'apis#destroy'
   
   get "sign_up", to: "registrations#new"
   post "sign_up", to: "registrations#create"

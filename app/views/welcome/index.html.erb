@@ -17,6 +17,7 @@
                     <th scope="row"><%= x %></th>
                         <td><%= data.apikey %></td>
                         <td><%= data.count %></td>
+                        <td><a data-confirm="Are you sure?" class="btn btn-primary " data-method="delete" href="/apis/del/<%=data.id%>">Delete</a></td>
                     </tr>
                     <% x = x + 1 %>
                 <% end %>    
