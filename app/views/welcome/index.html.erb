@@ -1,7 +1,6 @@
-<div class = "d-flex align-items-center justify-content-center">
+
         <% if Current.user %>
-           <%# <%= Current.user.id %> %>
-           <%= button_to 'Generate Key', apis_path, class:"btn btn-success" %>
+           <%= button_to 'Generate Key', apis_path, class:"mb-3 mt-3 btn btn-success" %>
             
            <table class="table">
                 <thead class="thead-dark">
@@ -24,7 +23,8 @@
                 </tbody>
             </table>
         <%else%>
-           <h2>Welcome to Word Dictionary API</h2>
+            <div class = "d-flex align-items-center justify-content-center">
+                <h2>Welcome to Word Dictionary API</h2>
+            </div>
         <%end%>    
-</div>
 
