@@ -4,7 +4,8 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :email, null: false
       t.string :password_digest
       t.integer :plan_type
-
+      t.integer :usage 
+       
       t.timestamps
     end
   end

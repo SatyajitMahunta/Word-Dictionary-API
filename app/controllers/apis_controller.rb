@@ -20,6 +20,7 @@ class ApisController < ApplicationController
     sha_api = Digest::SHA2.hexdigest Time.now.inspect 
     userid = Current.user.id # Current User's ID
     count = 0
+
     @api = Api.new({apikey: sha_api , userid: userid, count: count});
 
     # respond_to do |format|
