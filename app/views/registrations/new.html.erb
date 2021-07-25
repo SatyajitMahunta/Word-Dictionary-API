@@ -1,3 +1,4 @@
+
 <h1>Sign Up</h1>
 
 <%= form_with model: @user, url: sign_up_path do |form| %>
@@ -16,8 +17,13 @@
     </div>
      <%= render partial: "shared/plan" %>
      <div class="mb-3">
-       <%= form.label :plan_type %>
-       <%= form.text_field :plan_type, class:"form-control" , placeholder: "1 or 2 or 3" %>
+       </br><strong class="mb-3"><%= form.label :plan_type %></strong></br>
+       <p> 
+            <%= form.radio_button :plan_type, 1 %> Basic Plan<br />
+            <%= form.radio_button :plan_type, 2 %> Advanced Plan<br />
+            <%= form.radio_button :plan_type, 3 %> Expert Plan<br />
+         </p>
+       <%# <%= form.text_field :plan_type, class:"form-control" , placeholder: "1 or 2 or 3" > %>
     </div>
      <div class="mb-3">
        <%= form.label :password %>
