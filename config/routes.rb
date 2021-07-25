@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/dict', to: 'dictionary#create'
 
   get '/show_dict/:id/:word/:type', to: 'show_dict#show'
+  get '/show_dict/:id/:word', to: 'show_dict#show'
 
   get "/apis", to: 'apis#new'
   post "/apis", to: 'apis#create'

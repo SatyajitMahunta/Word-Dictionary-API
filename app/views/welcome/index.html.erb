@@ -2,6 +2,7 @@
         <% if Current.user %>
             <div class="d-flex flex-row justify-content-between">
                 <div class="p-2"><%= button_to 'Generate Key', apis_path, class:"mb-3 mt-3 btn btn-success" %></div>
+                <div class="p-2 mb-3 mt-4 btn btn-dark">API Count :<%= User.find_by(id: Current.user.id).api_cnt %></div>
                 <div class="p-2 mb-3 mt-4 mr-10 btn btn-dark">Total Usage :<%= User.find_by(id: Current.user.id).usage %></div>
             </div>
            <table class="table">
@@ -21,7 +22,7 @@
                     <th scope="row"><%= x %></th>
                         <td><%= data.apikey %></td>
                         <td><a data-confirm="Are you sure?" class="btn btn-outline-danger mr-5" data-method="delete" href="/apis/del/<%=data.id%>">Delete</a></td>
-                        <td><%= data.created_at %></td>
+                        <td><%= data.created_at.strftime("%d-%m-%y") %></td>
                         <td><%= data.count %></td>
                     </tr>
                     <% x = x + 1 %>

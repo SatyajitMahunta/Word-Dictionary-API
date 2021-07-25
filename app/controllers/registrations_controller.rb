@@ -7,6 +7,7 @@ class RegistrationsController < ApplicationController
     #render plain: "Thanks" 
     @user_p = user_params
     @user_p["usage"] = 0
+    @user_p["api_cnt"] = 0
     @user = User.new(@user_p)
     if @user.save 
       session[:user_id] = @user.id
