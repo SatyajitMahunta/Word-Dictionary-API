@@ -5,25 +5,25 @@ class ShowDictController < ApplicationController
         @operation_type = params[:type]
         @api_key = params[:API_KEY]
 
-        if(params[:id] != "word" && params[:id] != "words") || params[:type] == nil
+        if(params[:id] != "word" && params[:id] != "words")
             render :json => {error: "WRONG PATH :("}
             return
         end    
         # Check API Key is Present or not
         if Api.exists?(apikey: @api_key)
             # Check API is eligible for the service or not
-             @curr_api = Api.find_by(apikey: @api_key)
-             @curr_api_id = @curr_api["id"]
-             @curr_api_count = @curr_api["count"]
+            @curr_api = Api.find_by(apikey: @api_key)
+            @curr_api_id = @curr_api["id"]
+            @curr_api_count = @curr_api["count"]
 
-             @curr_user_id = @curr_api["userid"]
-             @user = User.find_by(id: @curr_user_id)
-             @user_type = @user["plan_type"]
-             @user_usage = @user["usage"]
+            @curr_user_id = @curr_api["userid"]
+            @user = User.find_by(id: @curr_user_id)
+            @user_type = @user["plan_type"]
+            @user_usage = @user["usage"]
             puts "WHAT IS THE ERROR"
             puts @user_usage
             if (@user_type == 3 && @user_usage < 1000) || (@user_type == 2 && @user_usage < 2000) || (@user_type == 1 && @user_usage < 500)
-                User.update(@curr_user_id , :usage => @user_usage+1 , :updated_at => Time.now.getutc)
+                User.update(@curr_user_id , :usage => @user_usage+490 , :updated_at => Time.now.getutc)
                 Api.update(@curr_api["id"] , :count => @curr_api_count+1)
                 puts @user["updated_at"]
                 @data = Dictionary.find_by(word: @word_name)

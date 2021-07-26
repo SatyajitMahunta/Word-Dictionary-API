@@ -8,7 +8,7 @@ class WelcomeController < ApplicationController
       if @user.updated_at.strftime("%d%m%y") != current_time.strftime("%d%m%y")
         
         # DEBUG 
-        puts "PROBLEM IS HERE BUDDY : :  :: : :: : : : : :"
+        puts "PROBLEM IS HERE : :  :: : :: : : : : :"
         puts @user.updated_at.strftime("%d%m%y")
         # DEBUG
 

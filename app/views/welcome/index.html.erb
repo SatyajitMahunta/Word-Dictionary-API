@@ -2,8 +2,17 @@
         <% if Current.user %>
             <div class="d-flex flex-row justify-content-between">
                 <div class="p-2"><%= button_to 'Generate Key', apis_path, class:"mb-3 mt-3 btn btn-success" %></div>
-                <div class="p-2 mb-3 mt-4 btn btn-dark">API Count :<%= User.find_by(id: Current.user.id).api_cnt %></div>
-                <div class="p-2 mb-3 mt-4 mr-10 btn btn-dark">Total Usage :<%= User.find_by(id: Current.user.id).usage %></div>
+                 <div class="p-2 mb-3 mt-4 btn btn-warning">
+                     <% if User.find_by(id: Current.user.id).plan_type == 1 %>
+                         <strong>Basic Plan</strong> [ Upto 5 API Keys ] [ 500 API Calls / Day ]
+                     <%elsif User.find_by(id: Current.user.id).plan_type == 2 %>
+                        <strong>Advanced Plan</strong> [ Upto 10 API Keys ] [ 2000 API Calls / Day ]
+                     <% else %>
+                        <strong>Expert Plan</strong> [ Unlimited API Keys ] [ 10000 API Calls / Day ]
+                     <% end %>
+                </div>
+                <div class="p-2 mb-3 mt-4 btn btn-dark">API Count : <%= User.find_by(id: Current.user.id).api_cnt %></div>
+                <div class="p-2 mb-3 mt-4 mr-10 btn btn-dark">Total Usage : <%= User.find_by(id: Current.user.id).usage %></div>
             </div>
            <table class="table">
                 <thead class="thead-dark bg-secondary text-white">
